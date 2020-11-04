@@ -4,15 +4,21 @@ import psycopg2
 
 app = Flask(__name__)
 
-db = SQLAlchemy()
+# db = SQLAlchemy()
 
-# connect to the db
-con = psycopg2.connect(
-            host="localhost",
-            database="realestate_db",
-            user="postgres",
-            password="123"
-)
+# # connect to the db
+# con = psycopg2.connect(
+#             host="localhost",
+#             database="realestate_db",
+#             user="postgres",
+#             password="123"
+# )
+
+# DATABASE_URL will contain the database connection string:
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', '')
+# Connects to the database using the app config
+db = SQLAlchemy(app)
+
 
 def calgary_data_fun():
     cur = con.cursor()
