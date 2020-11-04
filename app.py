@@ -8,7 +8,7 @@ app = Flask(__name__)
 # db = SQLAlchemy()
 
 # # connect to the db
- con = psycopg2.connect(
+con = psycopg2.connect(
              host="ec2-34-237-236-32.compute-1.amazonaws.com",
              database="dfn34sdboj8aj8",
              user="yoaubkikxpbbec",
