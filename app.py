@@ -9,10 +9,10 @@ app = Flask(__name__)
 
 # # connect to the db
 con = psycopg2.connect(
-             host="ec2-34-237-236-32.compute-1.amazonaws.com",
-             database="dfn34sdboj8aj8",
-             user="yoaubkikxpbbec",
-             password="5448c34e9b8472e17998d2a6a8b074be401c2189e1c4b155138f0f73babc3461"
+             host= os.environ.get("HOST"),
+             database=os.environ.get("DATABASE"),
+             user=os.environ.get("DB_USERNAME"),
+             password=os.environ.get("PASSWORD")
  )
 
 # DATABASE_URL will contain the database connection string:
