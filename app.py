@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import psycopg2
+import os
 
 app = Flask(__name__)
 
@@ -19,6 +20,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', '')
 # Connects to the database using the app config
 db = SQLAlchemy(app)
 
+con = os.environ.get('DATABASE_URL', '')
 
 def calgary_data_fun():
     cur = con.cursor()
